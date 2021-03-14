@@ -84,7 +84,7 @@ namespace Konves.Scripture.Tests
     ///to contain all RangePartsTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class RawRange_AccessorTest
+    public class RawRangeTest
     {
 
 
@@ -94,17 +94,17 @@ namespace Konves.Scripture.Tests
         ///Gets or sets the test context which provides
         ///information about and functionality for the current test run.
         ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
+        //public TestContext TestContext
+        //{
+        //    get
+        //    {
+        //        return testContextInstance;
+        //    }
+        //    set
+        //    {
+        //        testContextInstance = value;
+        //    }
+        //}
 
         #region Additional test attributes
         // 
@@ -140,16 +140,16 @@ namespace Konves.Scripture.Tests
         [ExpectedException(typeof(ArgumentNullException))]
         public void ParseTest_null()
         {
-            RawRange_Accessor actual;
-            actual = RawRange_Accessor.Parse(null, null, null, null);
+            RawRange actual;
+            actual = RawRange.Parse(null, null, null, null);
         }
 
         [TestMethod()]
         [ExpectedException(typeof(ArgumentNullException))]
         public void ParseTest_NoBook()
         {
-            RawRange_Accessor actual;
-            actual = RawRange_Accessor.Parse("3:16-john 3:17", null, null, null);
+            RawRange actual;
+            actual = RawRange.Parse("3:16-john 3:17", null, null, null);
         }
 
 
@@ -160,7 +160,7 @@ namespace Konves.Scripture.Tests
             string currentBook = string.Empty;
             string currentChapter = string.Empty;
             string currentVerse = string.Empty;
-            RawRange_Accessor expected = new RawRange_Accessor
+            RawRange expected = new RawRange
                 {
                     FirstBook = "acts",
                     FirstChapterString = "5",
@@ -171,8 +171,8 @@ namespace Konves.Scripture.Tests
                     SecondVerseString = "9",
                     SecondVerse = 9
                 };
-            RawRange_Accessor actual;
-            actual = RawRange_Accessor.Parse(block, currentBook, currentChapter, currentVerse);
+            RawRange actual;
+            actual = RawRange.Parse(block, currentBook, currentChapter, currentVerse);
             Assert.AreEqual(expected, actual);
         }
 
@@ -183,7 +183,7 @@ namespace Konves.Scripture.Tests
             string currentBook = string.Empty;
             string currentChapter = string.Empty;
             string currentVerse = string.Empty;
-            RawRange_Accessor expected = new RawRange_Accessor
+            RawRange expected = new RawRange
             {
                 FirstBook = "john",
                 FirstChapterString = "3",
@@ -192,8 +192,8 @@ namespace Konves.Scripture.Tests
                 SecondChapterString = "3",
                 SecondVerseString = "16"
             };
-            RawRange_Accessor actual;
-            actual = RawRange_Accessor.Parse(block, currentBook, currentChapter, currentVerse);
+            RawRange actual;
+            actual = RawRange.Parse(block, currentBook, currentChapter, currentVerse);
             Assert.AreEqual(expected, actual);
         }
 
@@ -204,7 +204,7 @@ namespace Konves.Scripture.Tests
             string currentBook = "john";
             string currentChapter = string.Empty;
             string currentVerse = string.Empty;
-            RawRange_Accessor expected = new RawRange_Accessor
+            RawRange expected = new RawRange
             {
                 FirstBook = "john",
                 FirstChapterString = "3",
@@ -213,8 +213,8 @@ namespace Konves.Scripture.Tests
                 SecondChapterString = "3",
                 SecondVerseString = "16"
             };
-            RawRange_Accessor actual;
-            actual = RawRange_Accessor.Parse(block, currentBook, currentChapter, currentVerse);
+            RawRange actual;
+            actual = RawRange.Parse(block, currentBook, currentChapter, currentVerse);
             Assert.AreEqual(expected, actual);
         }
 
@@ -225,7 +225,7 @@ namespace Konves.Scripture.Tests
             string currentBook = "john";
             string currentChapter = "3";
             string currentVerse = string.Empty;
-            RawRange_Accessor expected = new RawRange_Accessor
+            RawRange expected = new RawRange
             {
                 FirstBook = "john",
                 FirstChapterString = "16",
@@ -234,8 +234,8 @@ namespace Konves.Scripture.Tests
                 SecondChapterString = "16",
                 SecondVerseString = null
             };
-            RawRange_Accessor actual;
-            actual = RawRange_Accessor.Parse(block, currentBook, currentChapter, currentVerse);
+            RawRange actual;
+            actual = RawRange.Parse(block, currentBook, currentChapter, currentVerse);
             Assert.AreEqual(expected, actual);
         }
 
@@ -246,7 +246,7 @@ namespace Konves.Scripture.Tests
             string currentBook = string.Empty;
             string currentChapter = string.Empty;
             string currentVerse = string.Empty;
-            RawRange_Accessor expected = new RawRange_Accessor
+            RawRange expected = new RawRange
             {
                 FirstBook = "luke",
                 FirstChapterString = null,
@@ -255,8 +255,8 @@ namespace Konves.Scripture.Tests
                 SecondChapterString = null,
                 SecondVerseString = null
             };
-            RawRange_Accessor actual;
-            actual = RawRange_Accessor.Parse(block, currentBook, currentChapter, currentVerse);
+            RawRange actual;
+            actual = RawRange.Parse(block, currentBook, currentChapter, currentVerse);
             Assert.AreEqual(expected, actual);
         }
 
@@ -267,7 +267,7 @@ namespace Konves.Scripture.Tests
             string currentBook = string.Empty;
             string currentChapter = string.Empty;
             string currentVerse = string.Empty;
-            RawRange_Accessor expected = new RawRange_Accessor
+            RawRange expected = new RawRange
             {
                 FirstBook = "luke",
                 FirstChapterString = null,
@@ -276,8 +276,8 @@ namespace Konves.Scripture.Tests
                 SecondChapterString = null,
                 SecondVerseString = null
             };
-            RawRange_Accessor actual;
-            actual = RawRange_Accessor.Parse(block, currentBook, currentChapter, currentVerse);
+            RawRange actual;
+            actual = RawRange.Parse(block, currentBook, currentChapter, currentVerse);
             Assert.AreEqual(expected, actual);
         }
 
@@ -288,7 +288,7 @@ namespace Konves.Scripture.Tests
             string currentBook = string.Empty;
             string currentChapter = string.Empty;
             string currentVerse = string.Empty;
-            RawRange_Accessor expected = new RawRange_Accessor
+            RawRange expected = new RawRange
             {
                 FirstBook = "luke",
                 FirstChapterString = null,
@@ -297,8 +297,8 @@ namespace Konves.Scripture.Tests
                 SecondChapterString = "9",
                 SecondVerseString = null
             };
-            RawRange_Accessor actual;
-            actual = RawRange_Accessor.Parse(block, currentBook, currentChapter, currentVerse);
+            RawRange actual;
+            actual = RawRange.Parse(block, currentBook, currentChapter, currentVerse);
             Assert.AreEqual(expected, actual);
         }
 
@@ -309,7 +309,7 @@ namespace Konves.Scripture.Tests
             string currentBook = string.Empty;
             string currentChapter = string.Empty;
             string currentVerse = string.Empty;
-            RawRange_Accessor expected = new RawRange_Accessor
+            RawRange expected = new RawRange
             {
                 FirstBook = "john",
                 FirstChapterString = "3",
@@ -318,8 +318,8 @@ namespace Konves.Scripture.Tests
                 SecondChapterString = "5",
                 SecondVerseString = "34"
             };
-            RawRange_Accessor actual;
-            actual = RawRange_Accessor.Parse(block, currentBook, currentChapter, currentVerse);
+            RawRange actual;
+            actual = RawRange.Parse(block, currentBook, currentChapter, currentVerse);
             Assert.AreEqual(expected, actual);
         }
 
@@ -331,7 +331,7 @@ namespace Konves.Scripture.Tests
             string currentChapter = string.Empty;
             string currentVerse = string.Empty;
 
-            RawRange_Accessor expected = new RawRange_Accessor
+            RawRange expected = new RawRange
             {
                 FirstBook = "john",
                 FirstChapterString = "3",
@@ -340,8 +340,8 @@ namespace Konves.Scripture.Tests
                 SecondChapterString = "5",
                 SecondVerseString = "34"
             };
-            RawRange_Accessor actual;
-            actual = RawRange_Accessor.Parse(block, currentBook, currentChapter, currentVerse);
+            RawRange actual;
+            actual = RawRange.Parse(block, currentBook, currentChapter, currentVerse);
             Assert.AreEqual(expected, actual);
         }
 
@@ -353,7 +353,7 @@ namespace Konves.Scripture.Tests
             string currentChapter = string.Empty;
             string currentVerse = string.Empty;
 
-            RawRange_Accessor expected = new RawRange_Accessor
+            RawRange expected = new RawRange
             {
                 FirstBook = "jn",
                 FirstChapterString = "3",
@@ -362,8 +362,8 @@ namespace Konves.Scripture.Tests
                 SecondChapterString = "4",
                 SecondVerseString = "34"
             };
-            RawRange_Accessor actual;
-            actual = RawRange_Accessor.Parse(block, currentBook, currentChapter, currentVerse);
+            RawRange actual;
+            actual = RawRange.Parse(block, currentBook, currentChapter, currentVerse);
             Assert.AreEqual(expected, actual);
         }
 
@@ -375,7 +375,7 @@ namespace Konves.Scripture.Tests
             string currentChapter = string.Empty;
             string currentVerse = string.Empty;
 
-            RawRange_Accessor expected = new RawRange_Accessor
+            RawRange expected = new RawRange
             {
                 FirstBook = "john",
                 FirstChapterString = "12",
@@ -384,8 +384,8 @@ namespace Konves.Scripture.Tests
                 SecondChapterString = "13",
                 SecondVerseString = null
             };
-            RawRange_Accessor actual;
-            actual = RawRange_Accessor.Parse(block, currentBook, currentChapter, currentVerse);
+            RawRange actual;
+            actual = RawRange.Parse(block, currentBook, currentChapter, currentVerse);
             Assert.AreEqual(expected, actual);
         }
 
@@ -397,7 +397,7 @@ namespace Konves.Scripture.Tests
             string currentChapter = string.Empty;
             string currentVerse = string.Empty;
 
-            RawRange_Accessor expected = new RawRange_Accessor
+            RawRange expected = new RawRange
             {
                 FirstBook = "john",
                 FirstChapterString = "3",
@@ -406,8 +406,8 @@ namespace Konves.Scripture.Tests
                 SecondChapterString = "3",
                 SecondVerseString = "17"
             };
-            RawRange_Accessor actual;
-            actual = RawRange_Accessor.Parse(block, currentBook, currentChapter, currentVerse);
+            RawRange actual;
+            actual = RawRange.Parse(block, currentBook, currentChapter, currentVerse);
             Assert.AreEqual(expected, actual);
         }
 
@@ -419,7 +419,7 @@ namespace Konves.Scripture.Tests
             string currentChapter = string.Empty;
             string currentVerse = string.Empty;
 
-            RawRange_Accessor expected = new RawRange_Accessor
+            RawRange expected = new RawRange
             {
                 FirstBook = "john",
                 FirstChapterString = "3",
@@ -428,8 +428,8 @@ namespace Konves.Scripture.Tests
                 SecondChapterString = "3",
                 SecondVerseString = "17a"
             };
-            RawRange_Accessor actual;
-            actual = RawRange_Accessor.Parse(block, currentBook, currentChapter, currentVerse);
+            RawRange actual;
+            actual = RawRange.Parse(block, currentBook, currentChapter, currentVerse);
             Assert.AreEqual(expected, actual);
         }
         
@@ -439,7 +439,7 @@ namespace Konves.Scripture.Tests
         [TestMethod()]
         public void GetHashCodeTest()
         {
-            RawRange_Accessor target1 = new RawRange_Accessor
+            RawRange target1 = new RawRange
             {
                 FirstBook = "john",
                 FirstChapterString = "3",
@@ -449,7 +449,7 @@ namespace Konves.Scripture.Tests
                 SecondVerseString = "16"
             };
 
-            RawRange_Accessor target2 = new RawRange_Accessor
+            RawRange target2 = new RawRange
             {
                 FirstBook = "john",
                 FirstChapterString = "3",
@@ -474,7 +474,7 @@ namespace Konves.Scripture.Tests
             int verseExpected = -1; 
             string suffix = string.Empty; 
             string suffixExpected = null; 
-            RawRange_Accessor.ParseVerseString(input, out verse, out suffix);
+            RawRange.ParseVerseString(input, out verse, out suffix);
             Assert.AreEqual(verseExpected, verse);
             Assert.AreEqual(suffixExpected, suffix);
         }
@@ -487,7 +487,7 @@ namespace Konves.Scripture.Tests
             string input = "a";
             int verse = 0;
             string suffix = string.Empty;
-            RawRange_Accessor.ParseVerseString(input, out verse, out suffix);
+            RawRange.ParseVerseString(input, out verse, out suffix);
         }
 
         [TestMethod()]
@@ -498,7 +498,7 @@ namespace Konves.Scripture.Tests
             string input = "3d";
             int verse = 0;
             string suffix = string.Empty;
-            RawRange_Accessor.ParseVerseString(input, out verse, out suffix);
+            RawRange.ParseVerseString(input, out verse, out suffix);
         }
 
         [TestMethod()]
@@ -509,7 +509,7 @@ namespace Konves.Scripture.Tests
             string input = "3da";
             int verse = 0;
             string suffix = string.Empty;
-            RawRange_Accessor.ParseVerseString(input, out verse, out suffix);
+            RawRange.ParseVerseString(input, out verse, out suffix);
         }
 
         [TestMethod()]
@@ -521,15 +521,15 @@ namespace Konves.Scripture.Tests
             int verseExpected = 3;
             string suffix = string.Empty;
             string suffixExpected = "a";
-            RawRange_Accessor.ParseVerseString(input, out verse, out suffix);
+            RawRange.ParseVerseString(input, out verse, out suffix);
             Assert.AreEqual(verseExpected, verse);
             Assert.AreEqual(suffixExpected, suffix);
         }
 
         [TestMethod()]
-        public void FirstVerseStringTest()
+        public void FirstVerseStringTest2()
         {
-            RawRange_Accessor target = new RawRange_Accessor();
+            RawRange target = new RawRange();
             target.FirstVerseString = "3a";
             int expectedFirstVerse = 3;
             string expectedFirstVerseSuffix = "a";

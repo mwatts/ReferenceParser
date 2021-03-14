@@ -5,11 +5,11 @@ using System;
 namespace Konves.Scripture.Tests
 {    
     /// <summary>
-    ///This is a test class for RawVerse_AccessorTest and is intended
-    ///to contain all RawVerse_AccessorTest Unit Tests
+    ///This is a test class for RawVerseTest and is intended
+    ///to contain all RawVerseTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class RawVerse_AccessorTest
+    public class RawVerseTest
     {
         private TestContext testContextInstance;
 
@@ -64,17 +64,17 @@ namespace Konves.Scripture.Tests
         public void ParseTest_null()
         {
             string input = null;
-            RawVerse_Accessor actual;
-            actual = RawVerse_Accessor.Parse(input);
+            RawVerse actual;
+            actual = RawVerse.Parse(input);
         }
 
         [TestMethod()]
         public void ParseTest1()
         {
             string input = string.Empty;
-            RawVerse_Accessor expected = new RawVerse_Accessor { HasValue = false, Book = null, N1 = null, N2 = null, NumberCount = 0 };
-            RawVerse_Accessor actual;
-            actual = RawVerse_Accessor.Parse(input);
+            RawVerse expected = new RawVerse { HasValue = false, Book = null, N1 = null, N2 = null, NumberCount = 0 };
+            RawVerse actual;
+            actual = RawVerse.Parse(input);
             Assert.AreEqual(expected, actual);
         }
 
@@ -82,9 +82,9 @@ namespace Konves.Scripture.Tests
         public void ParseTest2()
         {
             string input = "2 jn";
-            RawVerse_Accessor expected = new RawVerse_Accessor { HasValue = true, Book = "2 jn", N1 = null, N2 = null, NumberCount = 0 };
-            RawVerse_Accessor actual;
-            actual = RawVerse_Accessor.Parse(input);
+            RawVerse expected = new RawVerse { HasValue = true, Book = "2 jn", N1 = null, N2 = null, NumberCount = 0 };
+            RawVerse actual;
+            actual = RawVerse.Parse(input);
             Assert.AreEqual(expected, actual);
         }
 
@@ -92,9 +92,9 @@ namespace Konves.Scripture.Tests
         public void ParseTest3a()
         {
             string input = "2 jn 3";
-            RawVerse_Accessor expected = new RawVerse_Accessor { HasValue = true, Book = "2 jn", N1 = "3", N2 = null, NumberCount = 1 };
-            RawVerse_Accessor actual;
-            actual = RawVerse_Accessor.Parse(input);
+            RawVerse expected = new RawVerse { HasValue = true, Book = "2 jn", N1 = "3", N2 = null, NumberCount = 1 };
+            RawVerse actual;
+            actual = RawVerse.Parse(input);
             Assert.AreEqual(expected, actual);
         }
 
@@ -102,9 +102,9 @@ namespace Konves.Scripture.Tests
         public void ParseTest3b()
         {
             string input = "2 jn 3:";
-            RawVerse_Accessor expected = new RawVerse_Accessor { HasValue = true, Book = "2 jn", N1 = "3", N2 = null, NumberCount = 1 };
-            RawVerse_Accessor actual;
-            actual = RawVerse_Accessor.Parse(input);
+            RawVerse expected = new RawVerse { HasValue = true, Book = "2 jn", N1 = "3", N2 = null, NumberCount = 1 };
+            RawVerse actual;
+            actual = RawVerse.Parse(input);
             Assert.AreEqual(expected, actual);
         }
 
@@ -112,9 +112,9 @@ namespace Konves.Scripture.Tests
         public void ParseTest4()
         {
             string input = "2 jn 3:16";
-            RawVerse_Accessor expected = new RawVerse_Accessor { HasValue = true, Book = "2 jn", N1 = "3", N2 = "16", NumberCount = 2 };
-            RawVerse_Accessor actual;
-            actual = RawVerse_Accessor.Parse(input);
+            RawVerse expected = new RawVerse { HasValue = true, Book = "2 jn", N1 = "3", N2 = "16", NumberCount = 2 };
+            RawVerse actual;
+            actual = RawVerse.Parse(input);
             Assert.AreEqual(expected, actual);
         }
 
@@ -122,9 +122,9 @@ namespace Konves.Scripture.Tests
         public void ParseTest5()
         {
             string input = " 3:16";
-            RawVerse_Accessor expected = new RawVerse_Accessor { HasValue = true, Book = null, N1 = "3", N2 = "16", NumberCount = 2 };
-            RawVerse_Accessor actual;
-            actual = RawVerse_Accessor.Parse(input);
+            RawVerse expected = new RawVerse { HasValue = true, Book = null, N1 = "3", N2 = "16", NumberCount = 2 };
+            RawVerse actual;
+            actual = RawVerse.Parse(input);
             Assert.AreEqual(expected, actual);
         }
 
@@ -132,9 +132,9 @@ namespace Konves.Scripture.Tests
         public void ParseTest6()
         {
             string input = " 16";
-            RawVerse_Accessor expected = new RawVerse_Accessor { HasValue = true, Book = null, N1 = "16", N2 = null, NumberCount = 1 };
-            RawVerse_Accessor actual;
-            actual = RawVerse_Accessor.Parse(input);
+            RawVerse expected = new RawVerse { HasValue = true, Book = null, N1 = "16", N2 = null, NumberCount = 1 };
+            RawVerse actual;
+            actual = RawVerse.Parse(input);
             Assert.AreEqual(expected, actual);
         }
 
@@ -142,9 +142,9 @@ namespace Konves.Scripture.Tests
         public void ParseTest7()
         {
             string input = "    ";
-            RawVerse_Accessor expected = new RawVerse_Accessor { HasValue = false, Book = null, N1 = null, N2 = null, NumberCount = 0 };
-            RawVerse_Accessor actual;
-            actual = RawVerse_Accessor.Parse(input);
+            RawVerse expected = new RawVerse { HasValue = false, Book = null, N1 = null, N2 = null, NumberCount = 0 };
+            RawVerse actual;
+            actual = RawVerse.Parse(input);
             Assert.AreEqual(expected, actual);
         }
 
@@ -152,9 +152,9 @@ namespace Konves.Scripture.Tests
         public void ParseTest8()
         {
             string input = "jn 3 : 16";
-            RawVerse_Accessor expected = new RawVerse_Accessor { HasValue = true, Book = "jn", N1 = "3", N2 = "16", NumberCount = 2 };
-            RawVerse_Accessor actual;
-            actual = RawVerse_Accessor.Parse(input);
+            RawVerse expected = new RawVerse { HasValue = true, Book = "jn", N1 = "3", N2 = "16", NumberCount = 2 };
+            RawVerse actual;
+            actual = RawVerse.Parse(input);
             Assert.AreEqual(expected, actual);
         }
 
@@ -162,9 +162,9 @@ namespace Konves.Scripture.Tests
         public void ParseTest9()
         {
             string input = "jn 3 : 16a";
-            RawVerse_Accessor expected = new RawVerse_Accessor { HasValue = true, Book = "jn", N1 = "3", N2 = "16a", NumberCount = 2 };
-            RawVerse_Accessor actual;
-            actual = RawVerse_Accessor.Parse(input);
+            RawVerse expected = new RawVerse { HasValue = true, Book = "jn", N1 = "3", N2 = "16a", NumberCount = 2 };
+            RawVerse actual;
+            actual = RawVerse.Parse(input);
             Assert.AreEqual(expected, actual);
         }
 
@@ -172,9 +172,9 @@ namespace Konves.Scripture.Tests
         public void ParseTest10()
         {
             string input = "jn 3 : 16d";
-            RawVerse_Accessor expected = new RawVerse_Accessor { HasValue = true, Book = "jn", N1 = "3", N2 = "16", NumberCount = 2 };
-            RawVerse_Accessor actual;
-            actual = RawVerse_Accessor.Parse(input);
+            RawVerse expected = new RawVerse { HasValue = true, Book = "jn", N1 = "3", N2 = "16", NumberCount = 2 };
+            RawVerse actual;
+            actual = RawVerse.Parse(input);
             Assert.AreEqual(expected, actual);
         }
 
@@ -182,9 +182,9 @@ namespace Konves.Scripture.Tests
         public void ParseTest11()
         {
             string input = "jn 3a : 16";
-            RawVerse_Accessor expected = new RawVerse_Accessor { HasValue = true, Book = "jn", N1 = "3a", N2 = "16", NumberCount = 2 };
-            RawVerse_Accessor actual;
-            actual = RawVerse_Accessor.Parse(input);
+            RawVerse expected = new RawVerse { HasValue = true, Book = "jn", N1 = "3a", N2 = "16", NumberCount = 2 };
+            RawVerse actual;
+            actual = RawVerse.Parse(input);
             Assert.AreEqual(expected, actual);
         }
     }

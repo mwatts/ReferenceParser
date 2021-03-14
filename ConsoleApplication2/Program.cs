@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using Konves.Scripture;
-using Konves.Scripture.Data;
 using Konves.Scripture.Version;
 
 namespace ConsoleApplication2
@@ -12,8 +8,7 @@ namespace ConsoleApplication2
     {
         static void Main(string[] args)
         {
-
-            ScriptureInfo.TryRegister("esv", @"e:\Users\Stephen\Desktop\SRP\trunk\Konves.Scripture\Data\esv.xml");
+            ScriptureInfo.TryRegister("esv", @"../../../../Konves.Scripture/Data/esv.xml");
 
             var esv = ScriptureInfo.GetInstance("esv");
 
@@ -51,14 +46,11 @@ namespace ConsoleApplication2
 
             //foreach (Verse verse in r)
             //{
-
             //    if (verse != null)
             //        Console.WriteLine(verse.ToString());
             //    else
             //        Console.WriteLine("ASDF");
             //}
-
-            
 
             ////var x = vc[31];
 
